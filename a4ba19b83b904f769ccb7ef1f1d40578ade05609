@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "baa041b7_e396af93",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 4,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-10T11:20:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa041b7_0373d3b2",
+      "range": {
+        "startLine": 4,
+        "startChar": 17,
+        "endLine": 4,
+        "endChar": 27
+      },
+      "revId": "a4ba19b83b904f769ccb7ef1f1d40578ade05609",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa041b7_e368efbc",
         "filename": "README.md",
         "patchSetId": 1
@@ -36,6 +60,24 @@
       "writtenOn": "2016-04-10T11:01:01Z",
       "side": 1,
       "message": "Add information about used environment and language.",
+      "revId": "a4ba19b83b904f769ccb7ef1f1d40578ade05609",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_c393aba2",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-10T11:20:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa041b7_e368efbc",
       "revId": "a4ba19b83b904f769ccb7ef1f1d40578ade05609",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
