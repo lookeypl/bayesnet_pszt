@@ -1,25 +1,19 @@
 package bayesnet_pszt;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
-import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionAdapter;
 
 import javax.swing.JFrame;
 import javax.swing.JMenu;
-import javax.swing.JPanel;
-import javax.swing.border.EmptyBorder;
-import javax.swing.JOptionPane;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
 
 public class MainWindowFrame extends JFrame {
+    private static final long serialVersionUID = 955672843401770816L;
     private JMenu debugMenu;
     private JMenuItem debugOpenDiagramTest;
+    private DiagramTestWindowFrame diagramTestWindowFrame;
     
     /**
      * Launch the application.
@@ -45,7 +39,7 @@ public class MainWindowFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 507, 343);
         
-        //TODO: create DiagramTestWindowFrame object here
+        diagramTestWindowFrame = new DiagramTestWindowFrame();
         
         JMenuBar menuBar = new JMenuBar();
         
@@ -54,7 +48,7 @@ public class MainWindowFrame extends JFrame {
         debugOpenDiagramTest.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // TODO: make DiagramTestWindowFrame visible here
+                diagramTestWindowFrame.setVisible(true);
             }
         });
         debugMenu.add(debugOpenDiagramTest);
