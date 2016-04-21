@@ -1,0 +1,203 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa041b7_f32e48f9",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-21T13:40:08Z",
+      "side": 1,
+      "message": "My recommendation is to add a field in commit message describing how to verify the change. Now it might sound weird, but as the project goes on, it will greatly help us in development process.\n\nI\u0027m talking about something like:\n\n  Verification:\n       Run the project. A Window should appear",
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_53dcd411",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-21T13:40:08Z",
+      "side": 1,
+      "message": "remove red box",
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_93d25cff",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-21T13:40:08Z",
+      "side": 1,
+      "message": "Here is an important question - do we go with spaces, or tabs?\n\nPersonally I prefer spaces, as they are uniform and IDE-independent - 4 spaces \u003d 1 tab.\n\nMoreover, this does not apply to this commit, but I suggest setting another limit - 100 chars per line. This will make the code organized and easier to read.\n\nWhat do you think?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 1
+      },
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_33eef0b4",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-21T13:40:08Z",
+      "side": 1,
+      "message": "Unused code, remove",
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_33d710ef",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-21T13:40:08Z",
+      "side": 1,
+      "message": "remove red box",
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_13052c79",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 48,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-21T13:40:08Z",
+      "side": 1,
+      "message": "remove red box",
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_1313ecb9",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-21T13:40:08Z",
+      "side": 1,
+      "message": "Unused",
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_f307687f",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 50,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-21T13:40:08Z",
+      "side": 1,
+      "message": "remove red box",
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_d3fea46a",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 52,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-21T13:40:08Z",
+      "side": 1,
+      "message": "remove red box",
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_93f93c83",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-21T13:40:08Z",
+      "side": 1,
+      "message": "Unused code, remove",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 46
+      },
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_b301e06c",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 63,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-21T13:40:08Z",
+      "side": 1,
+      "message": "remove red box",
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
