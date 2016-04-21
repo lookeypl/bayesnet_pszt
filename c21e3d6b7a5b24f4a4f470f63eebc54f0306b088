@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa041b7_d30c6496",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 2
+      },
+      "lineNbr": 8,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-21T13:42:38Z",
+      "side": 1,
+      "message": "IMO we do not need to write how each iteration of review fixed the change.\n\nThe most important thing is what the change does at its current state. Whatever happened in between patch sets can be read from Gerrit history directly.\n\nAlso, please try to keep commit message titles in \u003c 70 chars. If you need to add any more info, provide it in a new line after the title.",
+      "range": {
+        "startLine": 8,
+        "startChar": 5,
+        "endLine": 8,
+        "endChar": 34
+      },
+      "revId": "c21e3d6b7a5b24f4a4f470f63eebc54f0306b088",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
