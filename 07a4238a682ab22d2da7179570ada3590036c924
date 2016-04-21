@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa041b7_8d559f51",
+        "filename": "README.md",
+        "patchSetId": 1
+      },
+      "lineNbr": 5,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-21T07:29:59Z",
+      "side": 1,
+      "message": "Indeed, this line needs to be removed. Above changes can stay. ;)",
+      "revId": "07a4238a682ab22d2da7179570ada3590036c924",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
