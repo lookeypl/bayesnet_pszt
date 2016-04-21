@@ -36,6 +36,24 @@
     },
     {
       "key": {
+        "uuid": "baa041b7_93b13c92",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 20,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-04-21T15:00:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa041b7_53dcd411",
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa041b7_93d25cff",
         "filename": "src/bayesnet_pszt/MainWindowFrame.java",
         "patchSetId": 1
@@ -47,6 +65,30 @@
       "writtenOn": "2016-04-21T13:40:08Z",
       "side": 1,
       "message": "Here is an important question - do we go with spaces, or tabs?\n\nPersonally I prefer spaces, as they are uniform and IDE-independent - 4 spaces \u003d 1 tab.\n\nMoreover, this does not apply to this commit, but I suggest setting another limit - 100 chars per line. This will make the code organized and easier to read.\n\nWhat do you think?",
+      "range": {
+        "startLine": 21,
+        "startChar": 0,
+        "endLine": 21,
+        "endChar": 1
+      },
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_73ac7835",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 21,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-04-21T15:00:51Z",
+      "side": 1,
+      "message": "spaces instead of tabs is a good idea, will be fixed in this commit. 100chars/line also OK.",
+      "parentUuid": "baa041b7_93d25cff",
       "range": {
         "startLine": 21,
         "startChar": 0,
@@ -76,6 +118,24 @@
     },
     {
       "key": {
+        "uuid": "baa041b7_3354b01f",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 23,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-04-21T15:00:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa041b7_33eef0b4",
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa041b7_33d710ef",
         "filename": "src/bayesnet_pszt/MainWindowFrame.java",
         "patchSetId": 1
@@ -87,6 +147,24 @@
       "writtenOn": "2016-04-21T13:40:08Z",
       "side": 1,
       "message": "remove red box",
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_337dd0b1",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-04-21T15:00:51Z",
+      "side": 1,
+      "message": "Inserting spaces/tab to get in line with other lines in a block is a natural behaviour of most IDEs, like Eclipse or VisualStudio. Fighting this behaviour by removing them would be time wasting, not efficient (those lines are hard to spot, so some would go unnoticed anyways) and not improving the code quality at all.",
+      "parentUuid": "baa041b7_33d710ef",
       "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
@@ -121,6 +199,24 @@
       "writtenOn": "2016-04-21T13:40:08Z",
       "side": 1,
       "message": "Unused",
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_53597459",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 49,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-04-21T15:00:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa041b7_1313ecb9",
       "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
@@ -172,6 +268,30 @@
       "writtenOn": "2016-04-21T13:40:08Z",
       "side": 1,
       "message": "Unused code, remove",
+      "range": {
+        "startLine": 58,
+        "startChar": 0,
+        "endLine": 58,
+        "endChar": 46
+      },
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_935ffc40",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-04-21T15:00:51Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa041b7_93f93c83",
       "range": {
         "startLine": 58,
         "startChar": 0,
