@@ -171,6 +171,24 @@
     },
     {
       "key": {
+        "uuid": "baa041b7_c4b49cf3",
+        "filename": "src/bayesnet_pszt/MainWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 24,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-04-22T06:28:32Z",
+      "side": 1,
+      "message": "I disagree.\n\nExtra spaces can be automatically removed on save - Eclipse has a switch for it. Visual studio does not insert them until you input a character in a specific line.\n\nAs a result, we are adding additional data to the file, which is useless. All can be easily set up - all you need to do is throw a switch or two in your IDE.",
+      "parentUuid": "baa041b7_337dd0b1",
+      "revId": "70911a60d978786e40af40ce5b63e8391ab8ea59",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa041b7_13052c79",
         "filename": "src/bayesnet_pszt/MainWindowFrame.java",
         "patchSetId": 1
