@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa041b7_1f19ad79",
+        "filename": "/COMMIT_MSG",
+        "patchSetId": 1
+      },
+      "lineNbr": 9,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-04-22T09:48:13Z",
+      "side": 1,
+      "message": "i did commit --amend, but seems that when removing commit message and entering new one i also by mistake removed Change-Id so this commit wasn\u0027t connected by gerrit to the prievious one",
+      "revId": "2a624c8e6be99e2fbf20e68b9adfdeda1c3d8e00",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
