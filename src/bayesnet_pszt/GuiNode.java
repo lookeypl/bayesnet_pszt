@@ -27,7 +27,7 @@ public class GuiNode implements GuiElement {
     private int width;
     private List<GuiNodesConnection> connections = new ArrayList<GuiNodesConnection>();
 
-    private boolean isEvidence;
+    private BayesNode mNode;
     // TODO: List of possible options for a node
     // TODO: collection containing 'combination data' entries for a node that has any parents
     // TODO: collection containing 'probalilities data' entries for every node
@@ -44,8 +44,8 @@ public class GuiNode implements GuiElement {
     public int getHeight() { return height; }
     public int getWidth() { return width; }
     public List<GuiNodesConnection> getConnections() { return connections; }
-    public void setIsEvidence(boolean value) { this.isEvidence = value; }
-    public boolean getIsEvidence() { return isEvidence; }
+    public void setIsEvidence(boolean value) { mNode.SetEvidence(value, null); }
+    public boolean getIsEvidence() { return mNode.IsEvidence(); }
 
     // constructors
     public GuiNode(GuiDiagram diagram, String name, int x, int y) {
@@ -55,7 +55,10 @@ public class GuiNode implements GuiElement {
         this.y = y;
 
         this.width = NODE_WIDTH;
-        this.height = NODE_WIDTH/2; // TODO: temp only; will be calculated from the number of options
+
+        mNode = Bayes.getInstance().CreateNode(name, null);
+
+        this.height = 15 * (mNode.GetParamCount() + 1); // LKTODO adjust!
     }
 
     // methods
@@ -68,7 +71,7 @@ public class GuiNode implements GuiElement {
         Font textFont = new Font("TimesRoman", Font.PLAIN, 12);
 
         Shape s = new RoundRectangle2D.Double(x, y, width, height, 2, 2);
-        g2.setColor(isEvidence? EVIDENCE_NODE_COLOR : NORMAL_NODE_COLOR);
+        g2.setColor(getIsEvidence() ? EVIDENCE_NODE_COLOR : NORMAL_NODE_COLOR);
         g2.fill(s);
 
         g2.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
@@ -82,7 +85,13 @@ public class GuiNode implements GuiElement {
         g2.setColor(Color.BLACK);
         g2.draw(s);
 
-        // TODO: drawing data options and calculated/evidence probablilties for them
+        int offsetY = 30;
+        if (mNode.mAttrs != null)
+            for (BayesAttributePair<Float> attr : mNode.mAttrs)
+            {
+                g2.drawString(attr.key + ": " + attr.value.floatValue(), x + 2, y + offsetY);
+                offsetY += 12;
+            }
 
         if (diagram.isElementSelected(this)) {
             g2.setStroke(dashed);
