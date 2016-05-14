@@ -9,6 +9,7 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
+
 import javax.swing.JOptionPane;
 
 public class GuiDiagram {
@@ -89,10 +90,12 @@ public class GuiDiagram {
         connections.add(connection);
         from.getConnections().add(connection);
         to.getConnections().add(connection);
+        from.getBayesNode().AddChild(to.getBayesNode());
         return connection;
     }
 
     public void removeConnection(GuiNodesConnection connection) {
+        connection.getSource().getBayesNode().RemoveChild(connection.getDestination().getBayesNode());
         connection.getSource().getConnections().remove(connection);
         connection.getDestination().getConnections().remove(connection);
         connections.remove(connection);
