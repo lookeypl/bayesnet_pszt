@@ -9,7 +9,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
-import javax.swing.JOptionPane;
 
 public class GuiDiagram {
     // fields
@@ -184,7 +183,8 @@ public class GuiDiagram {
             if (mousePressedElement == null)
                 return;
 
-            JOptionPane.showMessageDialog(null, "double click");
+            EditableNode eNode = new EditableNode();
+            // JOptionPane.showMessageDialog(null, "double click");
             // TODO: open new window, when editing node data is possible
             return;
         }
