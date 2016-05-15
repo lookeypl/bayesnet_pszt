@@ -1,0 +1,96 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa041b7_e0fbbe79",
+        "filename": "src/bayesnet_pszt/Bayes.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-05-15T21:46:56Z",
+      "side": 1,
+      "message": "AddParent method of BayesNode should be used instead of direct access to mParents",
+      "range": {
+        "startLine": 18,
+        "startChar": 12,
+        "endLine": 18,
+        "endChar": 41
+      },
+      "revId": "deee66a7327ac2f376f7e1a380d9479266cfeeb0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_40d6eaf1",
+        "filename": "src/bayesnet_pszt/BayesNode.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-05-15T21:46:56Z",
+      "side": 1,
+      "message": "besides parents, BayesNode should also contains collection of \u0027childs\u0027 - to allow not only the forward chaining, but also the backward chaining.",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 31
+      },
+      "revId": "deee66a7327ac2f376f7e1a380d9479266cfeeb0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_20064686",
+        "filename": "src/bayesnet_pszt/BayesNode.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-05-15T21:46:56Z",
+      "side": 1,
+      "message": "Not only adding, but also removing parents (and childs in corresponding childs collection mentioned before) should be possible; connections between nodes can be removed.\n\nAdditional sanity checks are also more than welcome - node cannot be parent of itself, node cannot have two identical parrents, removed nodes should be also removed from parents/childs collections, etc.",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 5
+      },
+      "revId": "deee66a7327ac2f376f7e1a380d9479266cfeeb0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_20df660e",
+        "filename": "src/bayesnet_pszt/GuiNode.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-05-15T21:46:56Z",
+      "side": 1,
+      "message": "* can be changed now;\n* also, should be recalculated (number of options can change) - GuiNode should have wrapper methods allowing to make changes to underlying BayesNode fields, keeping mNode object hidden (private). Those methods are the place to update fields like the height, when e.g. the number of options changes.\n\n\u003chere is my question about gerrithub usage - if i want to make my (rather small) changes to somebody else\u0027s commits before they got verified - like in this case - should i change them in their commit? Or should i submit another commit sourcing from this?\u003e",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 101
+      },
+      "revId": "deee66a7327ac2f376f7e1a380d9479266cfeeb0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
