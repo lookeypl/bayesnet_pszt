@@ -11,6 +11,7 @@ import java.awt.Shape;
 import java.awt.Stroke;
 import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class GuiNode implements GuiElement {
@@ -28,7 +29,7 @@ public class GuiNode implements GuiElement {
     private List<GuiNodesConnection> connections = new ArrayList<GuiNodesConnection>();
 
     private BayesNode mNode;
-    // TODO: List of possible options for a node
+    private List<NodeOption> options = new LinkedList<NodeOption>();
     // TODO: collection containing 'combination data' entries for a node that has any parents
     // TODO: collection containing 'probalilities data' entries for every node
     //          - given by user when evidence node, or calculated by Bayes algorithm when not
@@ -46,6 +47,7 @@ public class GuiNode implements GuiElement {
     public List<GuiNodesConnection> getConnections() { return connections; }
     public void setIsEvidence(boolean value) { mNode.SetEvidence(value, null); }
     public boolean getIsEvidence() { return mNode.IsEvidence(); }
+    public List<NodeOption> getOptions() { return options; }
 
     // constructors
     public GuiNode(GuiDiagram diagram, String name, int x, int y) {
@@ -54,10 +56,9 @@ public class GuiNode implements GuiElement {
         this.x = x;
         this.y = y;
 
-        this.width = NODE_WIDTH;
-
         mNode = Bayes.getInstance().CreateNode(name, null);
 
+        this.width = NODE_WIDTH;
         this.height = 15 * (mNode.GetParamCount() + 1);
     }
 
@@ -110,6 +111,30 @@ public class GuiNode implements GuiElement {
 
     public BayesNode getBayesNode() {
         return mNode;
+    }
+
+    public void addOption(NodeOption option) {
+        if (options.contains(option))
+            return;
+
+        options.add(option); // if BayesNode will use NodeOption internally, then 'options' collection
+        // is not nessescary here (in GuiNode) - it should be only in BayesNode then
+
+        // TODO: implement adding option in mNode
+        // TODO: update GuiNode height - it changed, becouse one more option was added
+
+        // TODO: DISCUSSION: shoud BayesNode (mNode) use NodeOptions also in it's internal collections?
+        // using NodeOption objects allow to maintain relations between options better than strings;
+        // i.e. changing name of option wont change it's connections/relations
+    }
+
+    public void removeOption(NodeOption option) {
+        if (!options.contains(option))
+            return;
+
+        options.remove(option);
+        // TODO: implement removing option in mNode
+        // TODO: update GuiNode height - it changed, becouse one option was removed
     }
 
     @Override
