@@ -25,6 +25,30 @@
     },
     {
       "key": {
+        "uuid": "baa041b7_46b4c233",
+        "filename": "src/bayesnet_pszt/Bayes.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 18,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-05-16T12:06:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa041b7_e0fbbe79",
+      "range": {
+        "startLine": 18,
+        "startChar": 12,
+        "endLine": 18,
+        "endChar": 41
+      },
+      "revId": "deee66a7327ac2f376f7e1a380d9479266cfeeb0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa041b7_40d6eaf1",
         "filename": "src/bayesnet_pszt/BayesNode.java",
         "patchSetId": 1
@@ -48,6 +72,30 @@
     },
     {
       "key": {
+        "uuid": "baa041b7_e6f076ff",
+        "filename": "src/bayesnet_pszt/BayesNode.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 16,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-05-16T12:06:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa041b7_40d6eaf1",
+      "range": {
+        "startLine": 16,
+        "startChar": 4,
+        "endLine": 16,
+        "endChar": 31
+      },
+      "revId": "deee66a7327ac2f376f7e1a380d9479266cfeeb0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa041b7_20064686",
         "filename": "src/bayesnet_pszt/BayesNode.java",
         "patchSetId": 1
@@ -59,6 +107,30 @@
       "writtenOn": "2016-05-15T21:46:56Z",
       "side": 1,
       "message": "Not only adding, but also removing parents (and childs in corresponding childs collection mentioned before) should be possible; connections between nodes can be removed.\n\nAdditional sanity checks are also more than welcome - node cannot be parent of itself, node cannot have two identical parrents, removed nodes should be also removed from parents/childs collections, etc.",
+      "range": {
+        "startLine": 50,
+        "startChar": 4,
+        "endLine": 55,
+        "endChar": 5
+      },
+      "revId": "deee66a7327ac2f376f7e1a380d9479266cfeeb0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_c6f572ed",
+        "filename": "src/bayesnet_pszt/BayesNode.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 55,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-05-16T12:06:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa041b7_20064686",
       "range": {
         "startLine": 50,
         "startChar": 4,
@@ -106,6 +178,30 @@
       "side": 1,
       "message": "If you really need this update and cannot wait for my corrections, I suggest making a separate commit. Example - A is under review, B is your separate commit with fixes, C is your new change which requires B to work. Then, the line would look as follows:\n\n  C \u003c- your new change\n  |\n  B \u003c- minor fixes to make C possible\n  |\n  A \u003c- under review\n\nIf I were to update A, then you would have to pull new version of A (say, A\u0027 ) and rebase your C on top of it, so it would finally look as follows:\n\n  C \u003c- your new change\n  |\n  A\u0027\u003c- under review, updated\n\nThis seems the easiest way to do it. Remember that calling \u0027git rebase -i \u003cbranch\u003e\u0027 will open a text editor, which allows you to pick only the commits you want to rebase. This way you will be able to skip B from this chain and rebase only C after I make my updates. Of course, conflicts may arise, but this is the matter for a separate discussion.",
       "parentUuid": "baa041b7_20df660e",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 101
+      },
+      "revId": "deee66a7327ac2f376f7e1a380d9479266cfeeb0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_e6c75696",
+        "filename": "src/bayesnet_pszt/GuiNode.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-05-16T12:06:38Z",
+      "side": 1,
+      "message": "Done",
+      "parentUuid": "baa041b7_7b719f75",
       "range": {
         "startLine": 58,
         "startChar": 8,
