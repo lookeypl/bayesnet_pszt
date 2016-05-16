@@ -91,6 +91,30 @@
       "revId": "deee66a7327ac2f376f7e1a380d9479266cfeeb0",
       "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
       "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_7b719f75",
+        "filename": "src/bayesnet_pszt/GuiNode.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 58,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-05-16T08:15:38Z",
+      "side": 1,
+      "message": "If you really need this update and cannot wait for my corrections, I suggest making a separate commit. Example - A is under review, B is your separate commit with fixes, C is your new change which requires B to work. Then, the line would look as follows:\n\n  C \u003c- your new change\n  |\n  B \u003c- minor fixes to make C possible\n  |\n  A \u003c- under review\n\nIf I were to update A, then you would have to pull new version of A (say, A\u0027 ) and rebase your C on top of it, so it would finally look as follows:\n\n  C \u003c- your new change\n  |\n  A\u0027\u003c- under review, updated\n\nThis seems the easiest way to do it. Remember that calling \u0027git rebase -i \u003cbranch\u003e\u0027 will open a text editor, which allows you to pick only the commits you want to rebase. This way you will be able to skip B from this chain and rebase only C after I make my updates. Of course, conflicts may arise, but this is the matter for a separate discussion.",
+      "parentUuid": "baa041b7_20df660e",
+      "range": {
+        "startLine": 58,
+        "startChar": 8,
+        "endLine": 58,
+        "endChar": 101
+      },
+      "revId": "deee66a7327ac2f376f7e1a380d9479266cfeeb0",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
     }
   ]
 }
