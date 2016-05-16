@@ -1,0 +1,50 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa041b7_016a24ee",
+        "filename": "src/bayesnet_pszt/BayesNode.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-05-16T18:35:13Z",
+      "side": 1,
+      "message": "also if mChildren contains \u0027parent\u0027 should be checked / return if true\n(cannot add parrent \u0027A\u0027 for node \u0027B\u0027 if node \u0027A\u0027 is already a child of node \u0027B\u0027)",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 19
+      },
+      "revId": "e1f500a05804236aa5851587c1f9c8bc84dc798b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
+        "uuid": "baa041b7_a17938ca",
+        "filename": "src/bayesnet_pszt/BayesNode.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 75,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-05-16T18:35:13Z",
+      "side": 1,
+      "message": "also check if mParents contains child / return if true",
+      "range": {
+        "startLine": 74,
+        "startChar": 8,
+        "endLine": 75,
+        "endChar": 19
+      },
+      "revId": "e1f500a05804236aa5851587c1f9c8bc84dc798b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
