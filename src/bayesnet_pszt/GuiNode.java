@@ -12,6 +12,7 @@ import java.awt.Stroke;
 import java.awt.geom.RoundRectangle2D;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 public class GuiNode implements GuiElement {
     // fields
@@ -57,8 +58,23 @@ public class GuiNode implements GuiElement {
         this.width = NODE_WIDTH;
 
         mNode = Bayes.getInstance().CreateNode(name, null);
+        // fill the node
+        Vector<BayesAttributePair<Float>> attributes = new Vector<BayesAttributePair<Float>>();
+        BayesAttributePair<Float> temp = new BayesAttributePair<Float>();
+        temp.key = "A";
+        temp.value = 0.28f;
+        attributes.add(temp);
+        temp = new BayesAttributePair<Float>();
+        temp.key = "A";
+        temp.value = 0.06f;
+        attributes.add(temp);
+        temp = new BayesAttributePair<Float>();
+        temp.key = "A";
+        temp.value = 0.66f;
+        attributes.add(temp);
+        mNode.SetAttrs(attributes);
 
-        this.height = 15 * (mNode.GetParamCount() + 1);
+        this.height = 15 * (mNode.GetAttributeCount() + 1);
     }
 
     // methods
@@ -114,8 +130,14 @@ public class GuiNode implements GuiElement {
 
     @Override
     public boolean isLocationHit(int x, int y) {
-        return ((x >= this.x && x <= this.x + this.width) &&
-                (y >= this.y && y <= this.y + this.height));
+        boolean result = ((x >= this.x && x <= this.x + this.width) &&
+                          (y >= this.y && y <= this.y + this.height));
+        if (result)
+        {
+            mNode.PrintProbsToStdout();
+        }
+
+        return result;
     }
 }
 
