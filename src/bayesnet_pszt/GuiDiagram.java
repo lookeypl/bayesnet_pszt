@@ -112,6 +112,10 @@ public class GuiDiagram {
     }
 
     public void removeSelectedElements() {
+        for (GuiElement e: selectedElements) {
+            e.onDestroy();
+        }
+
         for (GuiElement e1 : selectedElements) {
             if (e1 instanceof GuiNodesConnection) {
                 removeConnection((GuiNodesConnection)e1);
