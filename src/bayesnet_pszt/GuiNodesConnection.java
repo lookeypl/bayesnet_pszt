@@ -77,5 +77,9 @@ public class GuiNodesConnection extends GuiConnection implements GuiElement {
         Line2D line = new Line2D.Double(sourcePoint, destinationPoint);
         return (line.ptLineDist(x, y) <= 5);
     }
+
+    @Override
+    public void onDestroy() {
+    }
 }
 
