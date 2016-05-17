@@ -49,6 +49,30 @@
     },
     {
       "key": {
+        "uuid": "baa041b7_6922f653",
+        "filename": "src/bayesnet_pszt/BayesNode.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-05-17T09:09:46Z",
+      "side": 1,
+      "message": "if there is no:\n\n  if (mChildren.contains(parent))\n    return;\n\nthen this situation is possible, but shouldn\u0027t:\n\nBecouse \u0027A\u0027 is a parent of \u0027B\u0027:\n  A.mChildren.contains(B) \u003d\u003d true\n  B.mParents.contains(A) \u003d\u003d true\n\nWhen we try to add \u0027B\u0027 as a parent of \u0027A\u0027:\n  A.AddParent(B) // it succeeds, but it shouldn\u0027t, becouse B is already a child of A, so it cannot be also it\u0027s parent\n\nIt should be checked that the node we try to add as a parent(child) to a node is not already a child(parent) of this node, to assure consistency in parent/child relations",
+      "parentUuid": "baa041b7_f661413a",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 19
+      },
+      "revId": "e1f500a05804236aa5851587c1f9c8bc84dc798b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa041b7_a17938ca",
         "filename": "src/bayesnet_pszt/BayesNode.java",
         "patchSetId": 3
