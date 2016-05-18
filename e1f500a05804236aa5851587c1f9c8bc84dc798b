@@ -73,6 +73,30 @@
     },
     {
       "key": {
+        "uuid": "baa041b7_58a2569a",
+        "filename": "src/bayesnet_pszt/BayesNode.java",
+        "patchSetId": 3
+      },
+      "lineNbr": 61,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-05-18T08:46:05Z",
+      "side": 1,
+      "message": "Ah, in this way. OK, gotcha. Will fix today evening.",
+      "parentUuid": "baa041b7_6922f653",
+      "range": {
+        "startLine": 60,
+        "startChar": 8,
+        "endLine": 61,
+        "endChar": 19
+      },
+      "revId": "e1f500a05804236aa5851587c1f9c8bc84dc798b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    },
+    {
+      "key": {
         "uuid": "baa041b7_a17938ca",
         "filename": "src/bayesnet_pszt/BayesNode.java",
         "patchSetId": 3
