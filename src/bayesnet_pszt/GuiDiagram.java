@@ -1,6 +1,7 @@
 package bayesnet_pszt;
 
 import java.awt.Color;
+import java.awt.Dialog.ModalityType;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
@@ -9,8 +10,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
-
-import javax.swing.JOptionPane;
 
 public class GuiDiagram {
     // fields
@@ -25,6 +24,7 @@ public class GuiDiagram {
     private GuiElement mousePressedElement;
     private Point mousePressedElementPos;
     private GuiConnection connectionInProgressSemiConnection;
+    private int newNodeAttributesCount = 3;
 
     // getters & setters
     public int getWidth() { return width; }
@@ -33,6 +33,8 @@ public class GuiDiagram {
     public List<GuiNodesConnection> getConnections() { return connections; }
     public List<GuiElement> getSelectedElements() { return selectedElements; }
     public DiagramToolType getSelectedTool() { return selectedTool; }
+    public int getNewNodeAttributesCount() { return newNodeAttributesCount; }
+    public void setNewNodeAttributesCount(int newNodeAttributesCount) { this.newNodeAttributesCount = newNodeAttributesCount; }
 
     //constructors
     public GuiDiagram(int width, int height) {
@@ -61,8 +63,8 @@ public class GuiDiagram {
         setConnectFrom(null);
     }
 
-    public GuiNode createNode(String name, int x, int y) {
-        GuiNode node = new GuiNode(this, name, x, y);
+    public GuiNode createNode(String name, int x, int y, int attrCount) {
+        GuiNode node = new GuiNode(this, name, x, y, attrCount);
         nodes.add(node);
         return node;
     }
@@ -191,13 +193,20 @@ public class GuiDiagram {
             if (mousePressedElement == null)
                 return;
 
-            JOptionPane.showMessageDialog(null, "double click");
-            // TODO: open new window, when editing node data is possible
+            if (mousePressedElement instanceof GuiNode)
+            {
+                EditNodeDialog editDialog = new EditNodeDialog(DiagramWindowFrame.Instance,
+                        ModalityType.APPLICATION_MODAL,
+                        (GuiNode)mousePressedElement);
+                editDialog.setVisible(true);
+                DiagramWindowFrame.Instance.repaintDiagram();
+            }
+
             return;
         }
 
         if (selectedTool == DiagramToolType.ADDNODE) {
-            createNode("NewNode", e.getX() - GuiNode.NODE_WIDTH/2, e.getY() - 25);
+            createNode("NewNode", e.getX() - GuiNode.NODE_WIDTH/2, e.getY() - 25, newNodeAttributesCount);
             return;
         }
 

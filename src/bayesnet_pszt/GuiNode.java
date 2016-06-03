@@ -49,7 +49,10 @@ public class GuiNode implements GuiElement {
     public boolean getIsEvidence() { return mNode.IsEvidence(); }
 
     // constructors
-    public GuiNode(GuiDiagram diagram, String name, int x, int y) {
+    public GuiNode(GuiDiagram diagram, String name, int x, int y, int attrCount) {
+        if (diagram == null || x < 0 || y < 0 || x > diagram.getWidth() || y > diagram.getHeight() || attrCount < 0)
+            throw new IllegalArgumentException();
+
         this.diagram = diagram;
         this.name = name;
         this.x = x;
@@ -58,29 +61,19 @@ public class GuiNode implements GuiElement {
         this.width = NODE_WIDTH;
 
         mNode = Bayes.getInstance().CreateNode(name, null);
-        // fill the node
         Vector<BayesAttributePair<Float>> attributes = new Vector<BayesAttributePair<Float>>();
-        BayesAttributePair<Float> temp = new BayesAttributePair<Float>();
-        temp.key = "A";
-        temp.value = 0.28f;
-        attributes.add(temp);
-        temp = new BayesAttributePair<Float>();
-        temp.key = "A";
-        temp.value = 0.06f;
-        attributes.add(temp);
-        temp = new BayesAttributePair<Float>();
-        temp.key = "A";
-        temp.value = 0.66f;
-        attributes.add(temp);
+        for (Integer i = 0; i < attrCount; i++)
+        {
+            attributes.add(new BayesAttributePair<Float>("Attr"+i.toString(), 0.0f));
+        }
         mNode.SetAttrs(attributes);
-
-        this.height = 15 * (mNode.GetAttributeCount() + 1);
     }
 
     // methods
     public void paintConponent(Graphics g) {
-        Graphics2D g2 = (Graphics2D)g;
+        this.height = 15 * (mNode.GetAttributeCount() + 1);
 
+        Graphics2D g2 = (Graphics2D)g;
         Stroke normal = new BasicStroke(1);
         Stroke dashed = new BasicStroke(3, BasicStroke.CAP_BUTT,
                 BasicStroke.JOIN_BEVEL, 0, new float[]{9}, 0);

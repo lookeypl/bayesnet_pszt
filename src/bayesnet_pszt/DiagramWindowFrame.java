@@ -2,6 +2,7 @@ package bayesnet_pszt;
 
 import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.EventQueue;
 import java.awt.Graphics;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,22 +13,42 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.EmptyBorder;
 
-public class DiagramTestWindowFrame extends JFrame {
+public class DiagramWindowFrame extends JFrame {
     private static final long serialVersionUID = 6855979912985090468L;
+    public static DiagramWindowFrame Instance = new DiagramWindowFrame();
     private JScrollPane scrollPane;
     private GuiDiagram diagram;
+    final JPanel diagramPanel;
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    DiagramWindowFrame frame = new DiagramWindowFrame();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
 
     /**
      * Create the frame.
      */
-    public DiagramTestWindowFrame() {
-        setTitle("DiagramTest <DEBUG>");
-        setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
+    public DiagramWindowFrame() {
+        setTitle("DiagramWindow");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 600, 400);
 
         diagram = new GuiDiagram(3000,3000);
@@ -63,9 +84,31 @@ public class DiagramTestWindowFrame extends JFrame {
         buttonsPanel.add(rigidArea);
 
         JButton btnAddnode = new JButton("AddNode");
+        JFrame frame = this;
         btnAddnode.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                String s = (String)JOptionPane.showInputDialog(
+                        frame,
+                        "New node attributes count:",
+                        "Enter attributes count",
+                        JOptionPane.PLAIN_MESSAGE,
+                        null,
+                        null,
+                        "3");
+
+                int argCount = 3;
+                try
+                {
+                    if (s != null)
+                        argCount = Integer.parseInt(s);
+
+                    if (argCount < 0)
+                        argCount = 3;
+                }
+                finally { }
+
+                diagram.setNewNodeAttributesCount(argCount);
                 diagram.setSelectedTool(DiagramToolType.ADDNODE);
                 repaint();
             }
@@ -96,7 +139,7 @@ public class DiagramTestWindowFrame extends JFrame {
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         getContentPane().add(scrollPane);
 
-        final JPanel diagramPanel = new JPanel(){
+        diagramPanel = new JPanel(){
             private static final long serialVersionUID = 5167246880324842493L;
 
             @Override
@@ -134,5 +177,10 @@ public class DiagramTestWindowFrame extends JFrame {
         });
 
         scrollPane.setViewportView(diagramPanel);
+    }
+
+    public void repaintDiagram()
+    {
+        diagramPanel.repaint();
     }
 }
