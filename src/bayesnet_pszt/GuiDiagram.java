@@ -1,6 +1,7 @@
 package bayesnet_pszt;
 
 import java.awt.Color;
+import java.awt.Dialog.ModalityType;
 import java.awt.Graphics;
 import java.awt.Point;
 import java.awt.event.MouseEvent;
@@ -9,8 +10,6 @@ import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
-
-import javax.swing.JOptionPane;
 
 public class GuiDiagram {
     // fields
@@ -191,8 +190,17 @@ public class GuiDiagram {
             if (mousePressedElement == null)
                 return;
 
-            JOptionPane.showMessageDialog(null, "double click");
+            //JOptionPane.showMessageDialog(null, "double click");
             // TODO: open new window, when editing node data is possible
+            if (mousePressedElement instanceof GuiNode)
+            {
+                EditNodeDialog editDialog = new EditNodeDialog(DiagramTestWindowFrame.Instance,
+                        ModalityType.APPLICATION_MODAL,
+                        (GuiNode)mousePressedElement);
+                editDialog.setVisible(true);
+                DiagramTestWindowFrame.Instance.repaintDiagram();
+            }
+
             return;
         }
 
