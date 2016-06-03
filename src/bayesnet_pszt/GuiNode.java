@@ -73,14 +73,13 @@ public class GuiNode implements GuiElement {
         temp.value = 0.66f;
         attributes.add(temp);
         mNode.SetAttrs(attributes);
-
-        this.height = 15 * (mNode.GetAttributeCount() + 1);
     }
 
     // methods
     public void paintConponent(Graphics g) {
-        Graphics2D g2 = (Graphics2D)g;
+        this.height = 15 * (mNode.GetAttributeCount() + 1);
 
+        Graphics2D g2 = (Graphics2D)g;
         Stroke normal = new BasicStroke(1);
         Stroke dashed = new BasicStroke(3, BasicStroke.CAP_BUTT,
                 BasicStroke.JOIN_BEVEL, 0, new float[]{9}, 0);
