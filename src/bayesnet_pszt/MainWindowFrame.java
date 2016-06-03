@@ -12,7 +12,6 @@ public class MainWindowFrame extends JFrame {
     private static final long serialVersionUID = 955672843401770816L;
     private JMenu debugMenu;
     private JMenuItem debugOpenDiagramTest;
-    private DiagramTestWindowFrame diagramTestWindowFrame;
 
     /**
      * Launch the application.
@@ -39,8 +38,6 @@ public class MainWindowFrame extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 507, 343);
 
-        diagramTestWindowFrame = new DiagramTestWindowFrame();
-
         JMenuBar menuBar = new JMenuBar();
 
         debugMenu = new JMenu("DEBUG");
@@ -48,7 +45,7 @@ public class MainWindowFrame extends JFrame {
         debugOpenDiagramTest.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                diagramTestWindowFrame.setVisible(true);
+                DiagramTestWindowFrame.Instance.setVisible(true);
             }
         });
         debugMenu.add(debugOpenDiagramTest);

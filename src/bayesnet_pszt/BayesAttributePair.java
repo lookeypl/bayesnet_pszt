@@ -4,4 +4,15 @@ package bayesnet_pszt;
 public final class BayesAttributePair<T> {
     String key;
     T value;
+
+    public BayesAttributePair()
+    {
+        //
+    }
+
+    public BayesAttributePair(String key, T value)
+    {
+        this.key = key;
+        this.value = value;
+    }
 }

@@ -10,7 +10,9 @@ public class BayesNode {
     public Vector<Float> mProbMatrix = new Vector<Float>();
     private int mAttributeCount = 0;
     private int mCombinationCount = 0;
-    private final float UNFILLED_FIELD = -1.0f;
+    public static final float UNFILLED_FIELD = -1.0f;
+
+    public int getCombinationCount() { return mCombinationCount; }
 
     /** Name of the node, for clarity sake */
     public String mName;

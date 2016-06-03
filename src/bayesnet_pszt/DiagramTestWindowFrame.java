@@ -19,8 +19,10 @@ import javax.swing.border.EmptyBorder;
 
 public class DiagramTestWindowFrame extends JFrame {
     private static final long serialVersionUID = 6855979912985090468L;
+    public static DiagramTestWindowFrame Instance = new DiagramTestWindowFrame();
     private JScrollPane scrollPane;
     private GuiDiagram diagram;
+    final JPanel diagramPanel;
 
     /**
      * Create the frame.
@@ -96,7 +98,7 @@ public class DiagramTestWindowFrame extends JFrame {
         scrollPane.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         getContentPane().add(scrollPane);
 
-        final JPanel diagramPanel = new JPanel(){
+        diagramPanel = new JPanel(){
             private static final long serialVersionUID = 5167246880324842493L;
 
             @Override
@@ -134,5 +136,10 @@ public class DiagramTestWindowFrame extends JFrame {
         });
 
         scrollPane.setViewportView(diagramPanel);
+    }
+
+    public void repaintDiagram()
+    {
+        diagramPanel.repaint();
     }
 }
