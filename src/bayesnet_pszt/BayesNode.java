@@ -10,7 +10,7 @@ public class BayesNode {
     public Vector<Float> mProbMatrix = new Vector<Float>();
     private int mAttributeCount = 0;
     private int mCombinationCount = 0;
-    private final float UNFILLED_FIELD = -1.0f;
+    private final float UNFILLED_FIELD = 0.0f;
 
     /** Name of the node, for clarity sake */
     public String mName;
@@ -37,6 +37,16 @@ public class BayesNode {
         InitializeProbMatrix();
     }
 
+    // LKTODO SetAttrs -> AddAttribute/RemoveAttribute
+
+    public void SetAttributeValue(int attr, float value)
+    {
+        if (attr >= mAttributeCount)
+            throw new ArrayIndexOutOfBoundsException();
+
+        mAttrs.get(attr).value = value;
+    }
+
     public void InitializeProbMatrix()
     {
         // generate a probability matrix from the data we curretly have
@@ -60,10 +70,23 @@ public class BayesNode {
                 // we have parents, yay! The matrix will be manually set
                 mProbMatrix.add(UNFILLED_FIELD);
         }
+
+        // TODO TEMPORARY! Fills the probability matrix with blood-related settings
+        if (mParents.size() == 2)
+        {
+            SetProbability(0, 0, 1.0f);
+            SetProbability(1, 2, 1.0f);
+            SetProbability(2, 0, 1.0f);
+            SetProbability(3, 2, 1.0f);
+            SetProbability(4, 1, 1.0f);
+            SetProbability(5, 1, 1.0f);
+            SetProbability(6, 0, 1.0f);
+            SetProbability(7, 1, 1.0f);
+            SetProbability(8, 3, 1.0f);
+        }
     }
 
-    public void SetProbability(int combination, int attribute, float value)
-    {
+    public void SetProbability(int combination, int attribute, float value) {
         if (combination > mCombinationCount)
             throw new ArrayIndexOutOfBoundsException();
 
@@ -73,8 +96,7 @@ public class BayesNode {
         mProbMatrix.set(combination * mAttributeCount + attribute, value);
     }
 
-    public void SetProbability(Vector<Float> probMatrix)
-    {
+    public void SetProbability(Vector<Float> probMatrix) {
         if (probMatrix == null)
             return;
 
@@ -179,10 +201,37 @@ public class BayesNode {
     }
 
     public int GetAttributeCount() {
-        if (mAttrs != null)
-            return mAttrs.size();
-        else
-            return 0;
+        return mAttributeCount;
+    }
+
+    public int GetCombinationCount() {
+        return mCombinationCount;
+    }
+
+    public BayesNode GetParent(int index) {
+        return mParents.get(index);
+    }
+
+    public boolean HasParents() {
+        return !mParents.isEmpty();
+    }
+
+    public boolean HasChildren() {
+        return !mChildren.isEmpty();
+    }
+
+    public BayesAttributePair<Float> GetAttribute(int index) {
+        return mAttrs.get(index);
+    }
+
+    public float GetProbability(int attribute, int combination) {
+        if (combination > mCombinationCount)
+            throw new ArrayIndexOutOfBoundsException();
+
+        if (attribute > mAttributeCount)
+            throw new ArrayIndexOutOfBoundsException();
+
+        return mProbMatrix.get(combination * mAttributeCount + attribute);
     }
 
     // for debugging purposes

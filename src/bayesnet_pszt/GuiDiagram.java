@@ -61,8 +61,8 @@ public class GuiDiagram {
         setConnectFrom(null);
     }
 
-    public GuiNode createNode(String name, int x, int y) {
-        GuiNode node = new GuiNode(this, name, x, y);
+    public GuiNode createNode(String name, int x, int y, boolean isBloodNode) {
+        GuiNode node = new GuiNode(this, name, x, y, isBloodNode);
         nodes.add(node);
         return node;
     }
@@ -197,8 +197,12 @@ public class GuiDiagram {
         }
 
         if (selectedTool == DiagramToolType.ADDNODE) {
-            createNode("NewNode", e.getX() - GuiNode.NODE_WIDTH/2, e.getY() - 25);
+            createNode("NewNode", e.getX() - GuiNode.NODE_WIDTH/2, e.getY() - 25, false);
             return;
+        }
+
+        if (selectedTool == DiagramToolType.ADDNODEBG) {
+            createNode("BloodNode", e.getX() - GuiNode.NODE_WIDTH/2, e.getY() - 25, true);
         }
 
         if (mousePressedElement == null) {
