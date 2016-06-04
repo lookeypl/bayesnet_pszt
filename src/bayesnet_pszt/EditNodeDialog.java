@@ -246,6 +246,78 @@ public class EditNodeDialog extends JDialog {
         gbc_saveButton.gridy = 10;
         getContentPane().add(saveButton, gbc_saveButton);
 
+        JButton fillBGButton = new JButton("FillBGMatrix");
+        fillBGButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if ((combinationsTable.getColumnCount() == 5) &&
+                    (combinationsTable.getRowCount() == 9)) {
+                    combinationsTable.setValueAt(1.0f, 0, 1);
+                    combinationsTable.setValueAt(0.0f, 0, 2);
+                    combinationsTable.setValueAt(0.0f, 0, 3);
+                    combinationsTable.setValueAt(1.0f, 1, 3);
+                    combinationsTable.setValueAt(1.0f, 2, 1);
+                    combinationsTable.setValueAt(1.0f, 3, 3);
+                    combinationsTable.setValueAt(1.0f, 4, 2);
+                    combinationsTable.setValueAt(1.0f, 5, 2);
+                    combinationsTable.setValueAt(1.0f, 6, 1);
+                    combinationsTable.setValueAt(1.0f, 7, 2);
+                    combinationsTable.setValueAt(1.0f, 8, 4);
+                } else {
+                    System.out.println("ERROR: Cannot fill - Node is probably not a BG node!");
+                }
+            }
+        });
+        GridBagConstraints gbc_FillBGButton = new GridBagConstraints();
+        gbc_FillBGButton.fill = GridBagConstraints.HORIZONTAL;
+        gbc_FillBGButton.gridx = 4;
+        gbc_FillBGButton.gridy = 10;
+        getContentPane().add(fillBGButton, gbc_FillBGButton);
+
+        JButton fillAllelButton = new JButton("FillAllelMatrix");
+        fillAllelButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                if (combinationsTable.getColumnCount() != 4) {
+                    System.out.println("ERROR: Cannot fill - Node is probably not an Allel node!");
+                    return;
+                }
+
+                if (combinationsTable.getRowCount() == 1) {
+                    combinationsTable.setValueAt(0.28, 0, 1);
+                    combinationsTable.setValueAt(0.06, 0, 2);
+                    combinationsTable.setValueAt(0.66, 0, 3);
+                } else if (combinationsTable.getRowCount() == 9) {
+                    combinationsTable.setValueAt(1.0f, 0, 1);
+                    combinationsTable.setValueAt(0.0f, 0, 2);
+                    combinationsTable.setValueAt(0.0f, 0, 3);
+                    combinationsTable.setValueAt(0.5f, 1, 1);
+                    combinationsTable.setValueAt(0.5f, 1, 2);
+                    combinationsTable.setValueAt(0.5f, 2, 1);
+                    combinationsTable.setValueAt(0.5f, 2, 3);
+
+                    combinationsTable.setValueAt(0.5f, 3, 1);
+                    combinationsTable.setValueAt(0.5f, 3, 2);
+                    combinationsTable.setValueAt(1.0f, 4, 2);
+                    combinationsTable.setValueAt(0.5f, 5, 2);
+                    combinationsTable.setValueAt(0.5f, 5, 3);
+
+                    combinationsTable.setValueAt(0.5f, 6, 1);
+                    combinationsTable.setValueAt(0.5f, 6, 3);
+                    combinationsTable.setValueAt(0.5f, 7, 2);
+                    combinationsTable.setValueAt(0.5f, 7, 3);
+                    combinationsTable.setValueAt(1.0f, 8, 3);
+                } else {
+                    System.out.println("ERROR: Cannot fill - Node is probably not an Allel node!");
+                }
+            }
+        });
+        GridBagConstraints gbc_FillAllelButton = new GridBagConstraints();
+        gbc_FillAllelButton.fill = GridBagConstraints.HORIZONTAL;
+        gbc_FillAllelButton.gridx = 3;
+        gbc_FillAllelButton.gridy = 10;
+        getContentPane().add(fillAllelButton, gbc_FillAllelButton);
+
         LoadDataFromNode();
     }
 
@@ -277,7 +349,7 @@ public class EditNodeDialog extends JDialog {
         }
 
         int[] indexes = new int[parentCount];
-        for (int i = 0; i < bayesNode.getCombinationCount(); i++)
+        for (int i = 0; i < bayesNode.GetCombinationCount(); i++)
         {
             String line = "";
             for (int j = 0; j < parentCount; j++)
@@ -315,7 +387,7 @@ public class EditNodeDialog extends JDialog {
             probabilitiesTableModel.setValueAt(pair.value.toString(), 0, i);
         }
 
-        combinationsTableModel.setRowCount(bayesNode.getCombinationCount());
+        combinationsTableModel.setRowCount(bayesNode.GetCombinationCount());
         FillCombinationsColumn();
         for (int i = 0; i < bayesNode.mProbMatrix.size(); i++)
         {
@@ -347,37 +419,40 @@ public class EditNodeDialog extends JDialog {
             }
             newAttrs.add(new BayesAttributePair<Float>(attributesListModel.getElementAt(i), val));
         }
-        bayesNode.SetAttrs(newAttrs);
+        bayesNode.SetAttributes(newAttrs);
         bayesNode.SetEvidence(evidenceNodeCheckbox.isSelected());
 
-        // combinations
-        Vector<Float> newProbMatrix = new Vector<Float>();
-        for (int i = 0; i < combinationsTableModel.getRowCount() *
-                (combinationsTableModel.getColumnCount() - 1); i++)
+        // set our combinations ONLY if we have a non-evidence node
+        if (!evidenceNodeCheckbox.isSelected())
         {
-            int column = i % (combinationsTableModel.getColumnCount() - 1) + 1;
-            int row = i / (combinationsTableModel.getColumnCount() - 1);
+            Vector<Float> newProbMatrix = new Vector<Float>();
+            for (int i = 0; i < combinationsTableModel.getRowCount() *
+                    (combinationsTableModel.getColumnCount() - 1); i++)
+            {
+                int column = i % (combinationsTableModel.getColumnCount() - 1) + 1;
+                int row = i / (combinationsTableModel.getColumnCount() - 1);
 
-            Float val;
-            try
-            {
-                Object obj = combinationsTableModel.getValueAt(row, column);
-                if (obj instanceof Float)
-                    val = (Float)obj;
-                else if (obj instanceof Double)
-                    val = ((Double)obj).floatValue();
-                else if (obj instanceof String)
-                    val = Float.parseFloat((String)obj);
-                else
+                Float val;
+                try
+                {
+                    Object obj = combinationsTableModel.getValueAt(row, column);
+                    if (obj instanceof Float)
+                        val = (Float)obj;
+                    else if (obj instanceof Double)
+                        val = ((Double)obj).floatValue();
+                    else if (obj instanceof String)
+                        val = Float.parseFloat((String)obj);
+                    else
+                        val = BayesNode.UNFILLED_FIELD;;
+                }
+                catch (NumberFormatException e)
+                {
                     val = BayesNode.UNFILLED_FIELD;;
+                }
+                newProbMatrix.add(val);
             }
-            catch (NumberFormatException e)
-            {
-                val = BayesNode.UNFILLED_FIELD;;
-            }
-            newProbMatrix.add(val);
+            bayesNode.SetProbability(newProbMatrix);
         }
-        bayesNode.SetProbability(newProbMatrix);
     }
 
     private void addAttribute(String name)

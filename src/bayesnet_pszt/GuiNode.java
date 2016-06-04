@@ -66,7 +66,7 @@ public class GuiNode implements GuiElement {
         {
             attributes.add(new BayesAttributePair<Float>("Attr"+i.toString(), 0.0f));
         }
-        mNode.SetAttrs(attributes);
+        mNode.SetAttributes(attributes);
     }
 
     // methods
@@ -87,7 +87,12 @@ public class GuiNode implements GuiElement {
         g2.setFont(textFont);
         g2.setStroke(normal);
         g2.setColor(Color.BLACK);
-        g2.drawString(this.name, x + 2, y + 12);
+
+        if (mNode.IsEvidence())
+            g2.drawString("[E] " + this.name, x + 2, y + 12);
+        else
+            g2.drawString(this.name, x + 2, y + 12);
+
         g2.drawLine(x, y + 14, x + NODE_WIDTH, y + 14);
 
         g2.setStroke(normal);

@@ -9,6 +9,8 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+import java.util.Vector;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -79,6 +81,115 @@ public class DiagramWindowFrame extends JFrame {
         });
         buttonsPanel.add(btnNew);
         buttonsPanel.add(btnRemoveselected);
+
+        JButton btnRecalc = new JButton("Recalc");
+        btnRecalc.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Bayes.getInstance().Recalculate();
+                repaint();
+            }
+        });
+        buttonsPanel.add(btnRecalc);
+
+        JButton btnGrass = new JButton("LoadGrass");
+        btnGrass.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiNode rain = diagram.createNode("Rain", 300, 100, 2);
+                GuiNode sprinkler = diagram.createNode("Sprinkler", 100, 200, 2);
+                GuiNode grass = diagram.createNode("Grass wet", 300, 300, 2);
+
+                diagram.createConnection(rain, sprinkler);
+                diagram.createConnection(sprinkler, grass);
+                diagram.createConnection(rain, grass);
+
+                rain.getBayesNode().SetProbability(0, 0, 0.2f);
+                rain.getBayesNode().SetProbability(0, 1, 0.8f);
+
+                sprinkler.getBayesNode().SetProbability(0, 0, 0.01f);
+                sprinkler.getBayesNode().SetProbability(0, 1, 0.99f);
+                sprinkler.getBayesNode().SetProbability(1, 0, 0.4f);
+                sprinkler.getBayesNode().SetProbability(1, 1, 0.6f);
+
+                grass.getBayesNode().SetProbability(0, 0, 0.99f);
+                grass.getBayesNode().SetProbability(0, 1, 0.01f);
+                grass.getBayesNode().SetProbability(1, 0, 0.9f);
+                grass.getBayesNode().SetProbability(1, 1, 0.1f);
+                grass.getBayesNode().SetProbability(2, 0, 0.8f);
+                grass.getBayesNode().SetProbability(2, 1, 0.2f);
+                grass.getBayesNode().SetProbability(3, 0, 0.0f);
+                grass.getBayesNode().SetProbability(3, 1, 1.0f);
+                repaint();
+            }
+        });
+        buttonsPanel.add(btnGrass);
+
+        JButton btnCancer = new JButton("LoadCancer");
+        btnCancer.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                GuiNode pollution = diagram.createNode("Pollution", 100, 100, 2);
+                GuiNode smoker = diagram.createNode("Smoker", 300, 100, 2);
+                GuiNode cancer = diagram.createNode("Cancer", 200, 200, 2);
+                GuiNode xray = diagram.createNode("X-Ray Result", 100, 300, 2);
+                GuiNode dyspnoea = diagram.createNode("Dyspnoea", 300, 300, 2);
+
+                diagram.createConnection(pollution, cancer);
+                diagram.createConnection(smoker, cancer);
+                diagram.createConnection(cancer, xray);
+                diagram.createConnection(cancer, dyspnoea);
+
+                Vector<BayesAttributePair<Float>> attr = new Vector<BayesAttributePair<Float>>();
+                attr.addElement(new BayesAttributePair<Float>("L", 0.0f));
+                attr.addElement(new BayesAttributePair<Float>("H", 0.0f));
+                pollution.getBayesNode().SetAttributes(attr);
+                pollution.getBayesNode().SetProbability(0, 0, 0.9f);
+                pollution.getBayesNode().SetProbability(0, 1, 0.1f);
+                attr.clear();
+
+                attr.addElement(new BayesAttributePair<Float>("T", 0.0f));
+                attr.addElement(new BayesAttributePair<Float>("F", 0.0f));
+                smoker.getBayesNode().SetAttributes(attr);
+                smoker.getBayesNode().SetProbability(0, 0, 0.3f);
+                smoker.getBayesNode().SetProbability(0, 1, 0.7f);
+                attr.clear();
+
+                attr.addElement(new BayesAttributePair<Float>("T", 0.0f));
+                attr.addElement(new BayesAttributePair<Float>("F", 0.0f));
+                cancer.getBayesNode().SetAttributes(attr);
+                cancer.getBayesNode().SetProbability(0, 0, 0.03f);
+                cancer.getBayesNode().SetProbability(0, 1, 0.97f);
+                cancer.getBayesNode().SetProbability(1, 0, 0.001f);
+                cancer.getBayesNode().SetProbability(1, 1, 0.999f);
+                cancer.getBayesNode().SetProbability(2, 0, 0.05f);
+                cancer.getBayesNode().SetProbability(2, 1, 0.95f);
+                cancer.getBayesNode().SetProbability(3, 0, 0.02f);
+                cancer.getBayesNode().SetProbability(3, 1, 0.98f);
+                attr.clear();
+
+                attr.addElement(new BayesAttributePair<Float>("P", 0.0f));
+                attr.addElement(new BayesAttributePair<Float>("N", 0.0f));
+                xray.getBayesNode().SetAttributes(attr);
+                xray.getBayesNode().SetProbability(0, 0, 0.9f);
+                xray.getBayesNode().SetProbability(0, 1, 0.1f);
+                xray.getBayesNode().SetProbability(1, 0, 0.2f);
+                xray.getBayesNode().SetProbability(1, 1, 0.8f);
+                attr.clear();
+
+                attr.addElement(new BayesAttributePair<Float>("T", 0.0f));
+                attr.addElement(new BayesAttributePair<Float>("F", 0.0f));
+                dyspnoea.getBayesNode().SetAttributes(attr);
+                dyspnoea.getBayesNode().SetProbability(0, 0, 0.65f);
+                dyspnoea.getBayesNode().SetProbability(0, 1, 0.35f);
+                dyspnoea.getBayesNode().SetProbability(1, 0, 0.3f);
+                dyspnoea.getBayesNode().SetProbability(1, 1, 0.7f);
+                attr.clear();
+
+                repaint();
+            }
+        });
+        buttonsPanel.add(btnCancer);
 
         Component rigidArea = Box.createRigidArea(new Dimension(20, 20));
         buttonsPanel.add(rigidArea);
