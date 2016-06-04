@@ -8,6 +8,7 @@ import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -238,7 +239,7 @@ public class EditNodeDialog extends JDialog {
         // TODO: Temp-only format of displaying combinations table, for tests.
         BayesNode bayesNode = guiNode.getBayesNode();
         //combinationsTableModel.setColumnCount(bayesNode.GetAttributeCount());
-        combinationsTableModel.setRowCount(bayesNode.getCombinationCount());
+        combinationsTableModel.setRowCount(bayesNode.GetCombinationCount());
         for (int i = 0; i < bayesNode.mProbMatrix.size(); i++)
         {
             int column = i % bayesNode.GetAttributeCount();

@@ -8,6 +8,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionAdapter;
+
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -30,7 +31,7 @@ public class DiagramTestWindowFrame extends JFrame {
     public DiagramTestWindowFrame() {
         setTitle("DiagramTest <DEBUG>");
         setDefaultCloseOperation(JFrame.HIDE_ON_CLOSE);
-        setBounds(100, 100, 600, 400);
+        setBounds(100, 100, 800, 600);
 
         diagram = new GuiDiagram(3000,3000);
 
@@ -61,6 +62,16 @@ public class DiagramTestWindowFrame extends JFrame {
         buttonsPanel.add(btnNew);
         buttonsPanel.add(btnRemoveselected);
 
+        JButton btnRecalc = new JButton("Recalc");
+        btnRecalc.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                Bayes.getInstance().Recalculate();
+                repaint();
+            }
+        });
+        buttonsPanel.add(btnRecalc);
+
         Component rigidArea = Box.createRigidArea(new Dimension(20, 20));
         buttonsPanel.add(rigidArea);
 
@@ -73,6 +84,16 @@ public class DiagramTestWindowFrame extends JFrame {
             }
         });
         buttonsPanel.add(btnAddnode);
+
+        JButton btnAddnodeBG = new JButton("AddNodeBG");
+        btnAddnodeBG.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                diagram.setSelectedTool(DiagramToolType.ADDNODEBG);
+                repaint();
+            }
+        });
+        buttonsPanel.add(btnAddnodeBG);
 
         JButton btnSelect = new JButton("Select");
         btnSelect.addActionListener(new ActionListener() {
