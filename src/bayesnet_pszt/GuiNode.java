@@ -49,7 +49,7 @@ public class GuiNode implements GuiElement {
     public boolean getIsEvidence() { return mNode.IsEvidence(); }
 
     // constructors
-    public GuiNode(GuiDiagram diagram, String name, int x, int y) {
+    public GuiNode(GuiDiagram diagram, String name, int x, int y, boolean isBloodNode) {
         this.diagram = diagram;
         this.name = name;
         this.x = x;
@@ -60,18 +60,40 @@ public class GuiNode implements GuiElement {
         mNode = Bayes.getInstance().CreateNode(name, null);
         // fill the node
         Vector<BayesAttributePair<Float>> attributes = new Vector<BayesAttributePair<Float>>();
-        BayesAttributePair<Float> temp = new BayesAttributePair<Float>();
-        temp.key = "A";
-        temp.value = 0.28f;
-        attributes.add(temp);
-        temp = new BayesAttributePair<Float>();
-        temp.key = "A";
-        temp.value = 0.06f;
-        attributes.add(temp);
-        temp = new BayesAttributePair<Float>();
-        temp.key = "A";
-        temp.value = 0.66f;
-        attributes.add(temp);
+        if (isBloodNode)
+        {
+            BayesAttributePair<Float> temp = new BayesAttributePair<Float>();
+            temp.key = "A";
+            temp.value = 0.0f;
+            attributes.add(temp);
+            temp = new BayesAttributePair<Float>();
+            temp.key = "B";
+            temp.value = 0.0f;
+            attributes.add(temp);
+            temp = new BayesAttributePair<Float>();
+            temp.key = "AB";
+            temp.value = 0.0f;
+            attributes.add(temp);
+            temp = new BayesAttributePair<Float>();
+            temp.key = "0";
+            temp.value = 0.0f;
+            attributes.add(temp);
+        }
+        else
+        {
+            BayesAttributePair<Float> temp = new BayesAttributePair<Float>();
+            temp.key = "A";
+            temp.value = 0.1f;
+            attributes.add(temp);
+            temp = new BayesAttributePair<Float>();
+            temp.key = "B";
+            temp.value = 0.6f;
+            attributes.add(temp);
+            temp = new BayesAttributePair<Float>();
+            temp.key = "0";
+            temp.value = 0.3f;
+            attributes.add(temp);
+        }
         mNode.SetAttrs(attributes);
 
         this.height = 15 * (mNode.GetAttributeCount() + 1);

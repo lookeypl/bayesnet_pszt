@@ -1,5 +1,7 @@
 package bayesnet_pszt;
 
+import java.util.Vector;
+
 public class Bayes {
     private static class BayesSingletonHolder {
         private final static Bayes instance = new Bayes();
@@ -11,16 +13,45 @@ public class Bayes {
 
     private Bayes() {}
 
+    private Vector<BayesNode> mNodes = new Vector<BayesNode>();
+
     public BayesNode CreateNode(String name, BayesNode parent) {
         BayesNode newNode = new BayesNode(name);
 
         if (parent != null)
             newNode.AddParent(parent);
 
+        mNodes.add(newNode);
         return newNode;
     }
 
     public void Recalculate() {
-        // TODO gather evidence nodes here, then do forward/backward evaluation
+        for (BayesNode node : mNodes)
+        {
+            // TODO TEMPORARY!!!
+            if (!node.mParents.isEmpty())
+            {
+                // this is our child node, calculate its attributes
+                for (int i = 0; i < node.GetAttributeCount(); ++i)
+                {
+                    float attributeValue = 0.0f;
+                    BayesNode parentM = node.GetParent(0);
+                    BayesNode parentF = node.GetParent(1);
+                    int iteratorM = 0, iteratorF = 0;
+                    for (int j = 0; j < node.GetCombinationCount(); ++j)
+                    {
+                        if (iteratorM == 3)
+                        {
+                            iteratorF++;
+                            iteratorM = 0;
+                        }
+                        attributeValue += parentM.GetAttribute(iteratorM).value * parentF.GetAttribute(iteratorF).value *
+                                          node.GetProbability(i, j);
+                        iteratorM++;
+                    }
+                    node.SetAttributeValue(i, attributeValue);
+                }
+            }
+        }
     }
 }
