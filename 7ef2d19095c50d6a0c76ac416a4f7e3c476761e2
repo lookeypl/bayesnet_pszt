@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa041b7_d0f4bdf1",
+        "filename": "src/bayesnet_pszt/BayesNode.java",
+        "patchSetId": 6
+      },
+      "lineNbr": 194,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-06-05T12:34:29Z",
+      "side": 1,
+      "message": "mProbMatrix is never supposed to be null, so this check is not nessescary.",
+      "range": {
+        "startLine": 190,
+        "startChar": 8,
+        "endLine": 194,
+        "endChar": 9
+      },
+      "revId": "7ef2d19095c50d6a0c76ac416a4f7e3c476761e2",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
