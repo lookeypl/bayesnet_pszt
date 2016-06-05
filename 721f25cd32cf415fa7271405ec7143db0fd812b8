@@ -1,0 +1,27 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa041b7_f0f10102",
+        "filename": "src/bayesnet_pszt/BayesNode.java",
+        "patchSetId": 7
+      },
+      "lineNbr": 96,
+      "author": {
+        "id": 1007875
+      },
+      "writtenOn": "2016-06-05T12:34:29Z",
+      "side": 1,
+      "message": "evidenceAttrs needs to be changed sometimes even if the node is not evidence node (e.g. adding new attribute to a no-evidence node).\n\nIMO any call to SetEvidence with evidenceAttrs should update evidenceAttrs, but if the node is not evidenceNode then probabilities should be recalced and replace those given in evidenceAttrs.",
+      "range": {
+        "startLine": 92,
+        "startChar": 8,
+        "endLine": 96,
+        "endChar": 9
+      },
+      "revId": "721f25cd32cf415fa7271405ec7143db0fd812b8",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
