@@ -33,9 +33,18 @@ public class BayesNode {
         if (attrs == null)
             throw new IllegalArgumentException();
 
+        int oldAttrCount = mAttrs.size();
         // replace previous attribute array if new is provided
         mAttrs = attrs;
         InitializeProbMatrix();
+
+        if (oldAttrCount != attrs.size())
+        {
+            for (BayesNode n : mChildren)
+            {
+                n.InitializeProbMatrix();
+            }
+        }
     }
 
     public void InitializeProbMatrix()
@@ -87,13 +96,8 @@ public class BayesNode {
         mProbMatrix = probMatrix;
     }
 
-    public void SetEvidence(boolean isEvidence, Vector<BayesAttributePair<Float>> evidenceAttrs) {
-        mIsEvidence = isEvidence;
-        mAttrs = evidenceAttrs;
-
-        if (mIsEvidence) {
-            // TODO: recalc probabilities here
-        }
+    public void SetEvidence(boolean isEvidence) {
+        this.mIsEvidence = isEvidence;
     }
 
     public boolean IsEvidence() {

@@ -45,7 +45,7 @@ public class GuiNode implements GuiElement {
     public int getHeight() { return height; }
     public int getWidth() { return width; }
     public List<GuiNodesConnection> getConnections() { return connections; }
-    public void setIsEvidence(boolean value) { mNode.SetEvidence(value, null); }
+    public void setIsEvidence(boolean value) { mNode.SetEvidence(value); }
     public boolean getIsEvidence() { return mNode.IsEvidence(); }
 
     // constructors
