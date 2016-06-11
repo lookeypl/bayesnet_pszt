@@ -49,7 +49,7 @@ public class DiagramWindowFrame extends JFrame {
     public DiagramWindowFrame() {
         setTitle("DiagramWindow");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        setBounds(100, 100, 600, 400);
+        setBounds(100, 100, 800, 600);
 
         diagram = new GuiDiagram(3000,3000);
 
@@ -83,8 +83,12 @@ public class DiagramWindowFrame extends JFrame {
         Component rigidArea = Box.createRigidArea(new Dimension(20, 20));
         buttonsPanel.add(rigidArea);
 
-        JButton btnAddnode = new JButton("AddNode");
-        JFrame frame = this;
+        final JButton btnAddnode = new JButton("AddNode");
+        final JButton btnSelect = new JButton("Select");
+        final JButton btnConnect = new JButton("Connect");
+        final JButton btnNone = new JButton("None");
+
+        final JFrame frame = this;
         btnAddnode.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -111,27 +115,53 @@ public class DiagramWindowFrame extends JFrame {
                 diagram.setNewNodeAttributesCount(argCount);
                 diagram.setSelectedTool(DiagramToolType.ADDNODE);
                 repaint();
+
+                btnAddnode.setEnabled(false);
+                btnSelect.setEnabled(true);
+                btnConnect.setEnabled(true);
+                btnNone.setEnabled(true);
             }
         });
         buttonsPanel.add(btnAddnode);
 
-        JButton btnSelect = new JButton("Select");
         btnSelect.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 diagram.setSelectedTool(DiagramToolType.SELECT);
+                btnAddnode.setEnabled(true);
+                btnSelect.setEnabled(false);
+                btnConnect.setEnabled(true);
+                btnNone.setEnabled(true);
             }
         });
         buttonsPanel.add(btnSelect);
 
-        JButton btnConnect = new JButton("Connect");
         btnConnect.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 diagram.setSelectedTool(DiagramToolType.CONNECT);
+                btnAddnode.setEnabled(true);
+                btnSelect.setEnabled(true);
+                btnConnect.setEnabled(false);
+                btnNone.setEnabled(true);
             }
         });
         buttonsPanel.add(btnConnect);
+
+        btnNone.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                diagram.setSelectedTool(DiagramToolType.NONE);
+                btnAddnode.setEnabled(true);
+                btnSelect.setEnabled(true);
+                btnConnect.setEnabled(true);
+                btnNone.setEnabled(false);
+            }
+        });
+        buttonsPanel.add(btnNone);
+
+        diagram.setSelectedTool(DiagramToolType.NONE);
+        btnNone.setEnabled(false);
 
         scrollPane = new JScrollPane();
         scrollPane.setViewportBorder(new EmptyBorder(2, 2, 2, 2));

@@ -8,6 +8,7 @@ import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
+
 import javax.swing.DefaultListModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -347,7 +348,7 @@ public class EditNodeDialog extends JDialog {
             newAttrs.add(new BayesAttributePair<Float>(attributesListModel.getElementAt(i), val));
         }
         bayesNode.SetAttrs(newAttrs);
-        bayesNode.setIsEvidence(evidenceNodeCheckbox.isSelected());
+        bayesNode.SetEvidence(evidenceNodeCheckbox.isSelected());
 
         // combinations
         Vector<Float> newProbMatrix = new Vector<Float>();
@@ -363,6 +364,8 @@ public class EditNodeDialog extends JDialog {
                 Object obj = combinationsTableModel.getValueAt(row, column);
                 if (obj instanceof Float)
                     val = (Float)obj;
+                else if (obj instanceof Double)
+                    val = ((Double)obj).floatValue();
                 else if (obj instanceof String)
                     val = Float.parseFloat((String)obj);
                 else
