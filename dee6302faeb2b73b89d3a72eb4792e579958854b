@@ -1,0 +1,21 @@
+{
+  "comments": [
+    {
+      "key": {
+        "uuid": "baa041b7_1b1c6c76",
+        "filename": "src/bayesnet_pszt/DiagramWindowFrame.java",
+        "patchSetId": 1
+      },
+      "lineNbr": 119,
+      "author": {
+        "id": 1002655
+      },
+      "writtenOn": "2016-06-11T15:12:54Z",
+      "side": 1,
+      "message": "I can see one issue in here - to change attribute count for newly added nodes, you must select other tool and re-select AddNode (instead of clicking on \"AddNode\" once again).\n\nI guess there is no time to do this in a better way now, so my suggestion is to leave the issue.",
+      "revId": "dee6302faeb2b73b89d3a72eb4792e579958854b",
+      "serverId": "d5d70762-12d0-45a1-890d-524b12d3f735",
+      "unresolved": false
+    }
+  ]
+}
