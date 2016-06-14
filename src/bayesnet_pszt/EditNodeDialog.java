@@ -192,6 +192,8 @@ public class EditNodeDialog extends JDialog {
         gbc_evidenceNodeCheckbox.gridx = 2;
         gbc_evidenceNodeCheckbox.gridy = 7;
         getContentPane().add(evidenceNodeCheckbox, gbc_evidenceNodeCheckbox);
+        // TODO reenable when evidence nodes are implemented
+        evidenceNodeCheckbox.setEnabled(false);
 
         JScrollPane scrollPaneProb = new JScrollPane();
         scrollPaneProb.setViewportBorder(new EmptyBorder(2, 2, 2, 2));
