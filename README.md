@@ -1,5 +1,5 @@
-Bayes Network Simulator
-=======================
+Bayes Network Simulator v. 0.0.1
+================================
 
 Project done for Warsaw University of Technology lecture PSZT - a simulation of blood group inheritance.
 
